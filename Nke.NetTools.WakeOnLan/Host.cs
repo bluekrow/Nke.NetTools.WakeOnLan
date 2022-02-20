@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.NetworkInformation;
 
-namespace WakeOnLan
+namespace Nke.NetTools.WakeOnLan
 {
     public record Host
     {

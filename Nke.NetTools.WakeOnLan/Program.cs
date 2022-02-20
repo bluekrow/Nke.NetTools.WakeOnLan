@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WakeOnLan
+namespace Nke.NetTools.WakeOnLan
 {
     class Program
     {

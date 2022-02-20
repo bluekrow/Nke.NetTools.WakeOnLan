@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\WakeOnLan\WakeOnLan.csproj" />
+      <ProjectReference Include="..\Nke.NetTools.WakeOnLan\Nke.NetTools.WakeOnLan.csproj" />
     </ItemGroup>
 
 </Project>

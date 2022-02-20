@@ -2,7 +2,7 @@ using System.Net;
 using FluentAssertions;
 using Xunit;
 
-namespace WakeOnLan.Tests
+namespace Nke.NetTools.WakeOnLan.Tests
 {
     public class WakeOnLanServiceShould
     {

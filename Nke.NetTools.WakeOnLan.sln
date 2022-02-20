@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WakeOnLan", "WakeOnLan\WakeOnLan.csproj", "{1DD9A7D9-30F9-4BDA-A536-8E770F7F7862}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nke.NetTools.WakeOnLan", "Nke.NetTools.WakeOnLan\Nke.NetTools.WakeOnLan.csproj", "{1DD9A7D9-30F9-4BDA-A536-8E770F7F7862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WakeOnLan.Tests", "WakeOnLan.Tests\WakeOnLan.Tests.csproj", "{ACD0712C-45EC-4EC0-988D-3BA4DBEBDA1E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nke.NetTools.WakeOnLan.Tests", "Nke.NetTools.WakeOnLan.Tests\Nke.NetTools.WakeOnLan.Tests.csproj", "{ACD0712C-45EC-4EC0-988D-3BA4DBEBDA1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
