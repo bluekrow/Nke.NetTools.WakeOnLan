@@ -1,3 +1,4 @@
+using System.Net;
 using FluentAssertions;
 using Xunit;
 
@@ -8,13 +9,14 @@ namespace WakeOnLan.Tests
         [Fact]
         public void WakeUpHost()
         {
-            var destinationHost = new Host();
+            var testIpAddress = IPAddress.Parse("192.168.10.60");
+            var destinationHost = new Host(testIpAddress);
             var wakOnLanService = new WakeOnLanService();
-            destinationHost.IsAwake.Should().BeFalse();
+            //destinationHost.IsAwake().Should().BeFalse();
             
             wakOnLanService.WakeUp(destinationHost);
             
-            destinationHost.IsAwake.Should().BeTrue();
+            destinationHost.IsAwake().Should().BeTrue();
         }
     }
 }
