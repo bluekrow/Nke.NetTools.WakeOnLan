@@ -10,13 +10,13 @@ namespace Nke.NetTools.WakeOnLan.Tests
         public void WakeUpHost()
         {
             var testIpAddress = IPAddress.Parse("192.168.10.60");
-            var destinationHost = new Host(testIpAddress);
+            var destinationHost = new Host(testIpAddress, "E8:F4:08:02:78:6C");
             var wakOnLanService = new WakeOnLanService();
-            //destinationHost.IsAwake().Should().BeFalse();
+            destinationHost.IsRdpReady().Should().BeFalse();
             
             wakOnLanService.WakeUp(destinationHost);
             
-            destinationHost.IsAwake().Should().BeTrue();
+            destinationHost.IsRdpReady().Should().BeTrue();
         }
     }
 }
