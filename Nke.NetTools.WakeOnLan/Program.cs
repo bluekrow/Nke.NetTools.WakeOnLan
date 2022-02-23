@@ -1,26 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Nke.NetTools.WakeOnLan
 {
-    internal class ConfiguredHost
-    {
-        public string Ip { get; }
-        public string MacAddress { get; }
-
-        public ConfiguredHost(string ipString, string macAddressString)
-        {
-            Ip = ipString;
-            MacAddress = macAddressString;
-        }
-    }
-
     internal static class Program
     {
         private static async Task Main()
         {
+            var configuredHostsSettings = await File.ReadAllTextAsync(Path.Combine(Directory.GetCurrentDirectory(),"ConfiguredHosts.json"));
+            var configuredHostsFromSettings = new List<ConfiguredHost>();
+             configuredHostsFromSettings =  JsonSerializer.Deserialize<IEnumerable<ConfiguredHost>>(configuredHostsSettings);
+
+            if (configuredHostsSettings?.Length == 0)
+            {
+                Console.WriteLine($"There is no Host configured!");
+            }
+                
+            foreach (var savedHost in configuredHostsFromSettings)
+            {
+                Console.WriteLine($"IP:{savedHost.Ip}, MacAddress:{savedHost.MacAddress}");
+            }
+
             var wakeOnLanService = new WakeOnLanService();
             var ipString = "192.168.10.60";
             var macAddressString = "E8:F4:08:02:78:6C";
