@@ -10,7 +10,7 @@ namespace Nke.NetTools.WakeOnLan.Tests
         public void DetectIfAHostIsNotRdpReady()
         {
             var testIpAddress = IPAddress.Parse("192.168.5.5");
-            var destinationHost = new Host(testIpAddress, "TODO");
+            var destinationHost = new Host(testIpAddress, string.Empty);
             destinationHost.IsRdpReady().Should().BeFalse();
         }
         
@@ -18,7 +18,7 @@ namespace Nke.NetTools.WakeOnLan.Tests
         public void DetectIfAHostIsRdpReady()
         {
             var testIpAddress = IPAddress.Parse("127.0.0.1");
-            var destinationHost = new Host(testIpAddress, "TODO");
+            var destinationHost = new Host(testIpAddress, string.Empty);
             destinationHost.IsRdpReady().Should().BeTrue();
         }
 

@@ -3,8 +3,11 @@ using System.Net.Sockets;
 
 namespace Nke.NetTools.WakeOnLan
 {
-    public record Host
+    public class Host
     {
+        public IPAddress Address { get; }
+        public string MacAddress { get; }
+        
         public Host(IPAddress address, string macAddress)
         {
             Address = address;
@@ -15,16 +18,18 @@ namespace Nke.NetTools.WakeOnLan
         {
             using var tcpClient = new TcpClient();
             const int RDP_PORT = 3389;
+            const int RDP_SOCKET_TIMEOUT = 500;
             try
             {
-                tcpClient.Connect(Address.ToString(), RDP_PORT);
+                tcpClient.ConnectAsync(Address.ToString(), RDP_PORT).Wait(RDP_SOCKET_TIMEOUT);
                 return tcpClient.Connected;
             }
             catch (SocketException) { }
+            finally
+            {
+                tcpClient.Close();
+            }
             return false;
         }
-
-        public IPAddress Address { get; }
-        public string MacAddress { get; }
     }
 }
