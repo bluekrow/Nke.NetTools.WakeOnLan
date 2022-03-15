@@ -10,15 +10,13 @@ namespace Nke.NetTools.WakeOnLan
         private static async Task Main()
         {
             var configuredHosts = new ConfiguredHosts("ConfiguredHosts.json");
-            var configuredHostsFromSettings = await configuredHosts.List();
-
+            
             if (configuredHosts.IsEmpty)
             {
-                configuredHostsFromSettings = new List<ConfiguredHost>();
                 Console.WriteLine($"There is no Host configured!");
             }
-                
-            foreach (var savedHost in configuredHostsFromSettings)
+            
+            foreach (var savedHost in await configuredHosts.List())
             {
                 Console.WriteLine($"IP:{savedHost.Ip}, MacAddress:{savedHost.MacAddress}");
             }
