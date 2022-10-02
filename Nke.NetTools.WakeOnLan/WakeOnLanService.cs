@@ -18,6 +18,7 @@ namespace Nke.NetTools.WakeOnLan
         {
             var magicPacket = new MagicPacket(localMacAddress);
             using var client = new UdpClient();
+            client.EnableBroadcast =true;
             client.Connect(IPAddress.Parse("192.168.10.255"), 9);
             await client.SendAsync(magicPacket.Datagram, magicPacket.DatagramLength);
             client.Close();
